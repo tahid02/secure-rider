@@ -23,7 +23,7 @@ function App() {
     <UserContext.Provider value={ [loggedInUser,setLoggedInUser] }>
       {/* <p>Name: {loggedInUser.email}</p> */}
       <Router>
-        <Header name={loggedInUser.email}/>
+        <Header name={loggedInUser.name}/>
 
         <Switch>
           <Route exact path='/'>

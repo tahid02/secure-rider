@@ -5,7 +5,7 @@
 const Rides = [{
     id: 1,
     name: "bike",
-    image: "http://buysellgraphic.com/images/graphic_preview/large/cartoon_motorbike_22953.jpg"
+    image: "https://www.pngitem.com/pimgs/m/145-1452082_motorcycle-cartoon-motorbike-transportation-bike-harley-davidson-clipart.png"
   }, {
     id: 2,
     name: "car",

@@ -1,259 +1,4 @@
 
-// import firebase from "firebase/app";
-// import "firebase/auth";
-// import { useContext, useState } from 'react';
-// import { useHistory, useLocation } from "react-router";
-// import { UserContext } from "../../App";
-// import FbGoogleSignUp from "./FbGoogleSignUp/FbGoogleSignUp";
-// import firebaseConfig from "./firebase.config";
-// import './LogInSignUp.css'
-
-
-// if (!firebase.apps.length) {
-//     firebase.initializeApp(firebaseConfig)
-//   }
-
-
-// const LogInSignUp = () => {
-
-//     const [loggedInUser,setLoggedInUser] = useContext(UserContext)
-//     const history = useHistory();
-//     const location = useLocation()
-//      const { from } = location.state || { from: { pathname: "/" } };
-//     const [newUser, setNewUser] = useState(true)
-//     const [user, setUser] = useState({
-//         // newUser:false,
-
-//         name: '',
-//         email: '',
-//         error: ''
-//       })
-
-
-//       const handleChange = (e) => {
-//         // console.log(e.target.name,e.target.value);
-//         let isFieldValid = true;
-//         if (e.target.name === 'email') {
-//           isFieldValid = /\S+@\S+\.\S+/.test(e.target.value)
-
-
-//         }
-
-//         if (e.target.name === 'password') {
-//           const isPasswordValid = e.target.value.length > 6;
-//           const isPasswordHasNumber = /\d{1}/.test(e.target.value)
-//           isFieldValid = isPasswordValid && isPasswordHasNumber;
-
-
-
-
-//         }
-
-
-
-//         if (isFieldValid) {
-
-//           const newUserInfo = { ...user }
-
-//           newUserInfo[e.target.name] = e.target.value //setting property in user object
-//           setUser(newUserInfo)
-//         }
-
-//       }
-
-
-
-//       const handleSubmit = (e) => {
-//         e.preventDefault();
-
-
-//         console.log(user.email, user.password,user.name)
-//         if (newUser && user.email && user.password) {
-//           firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
-//             .then((userCredential) => {
-//               // Signed in 
-//               var user = userCredential.user;
-//               updateUserName(user.name)
-//               const {displayName,email} = user
-//               const signedInUser = {name:displayName ,email}
-//               setLoggedInUser(signedInUser);
-//               history.replace(from)
-//               console.log(signedInUser,user)
-//             })
-//             .catch((error) => {
-//               console.log(error.message)
-
-//             });
-//         }
-
-
-
-
-//         if (!newUser && user.email && user.password) {
-
-//           firebase.auth().signInWithEmailAndPassword(user.email, user.password)
-//             .then((userCredential) => {
-//               // Signed in
-//               var user = userCredential.user;              
-//               const {displayName,email} = user
-//               const signedInUser = {name:displayName,email}
-//               setLoggedInUser(signedInUser)
-//               history.replace(from)
-
-//               console.log(signedInUser,user)
-//             })
-//             .catch((error) => {
-//               console.log(error.message)
-//             });
-//         }
-//       }
-
-//       const updateUserName = name => {
-//         const user = firebase.auth().currentUser;
-
-//         user.updateProfile({
-//           displayName:name 
-//           // photoURL: "https://example.com/jane-q-user/profile.jpg"
-//         }).then(function () {
-//           // Update successful.
-//           console.log('user name updated successfully');
-//         }).catch(function (error) {
-//           // An error happened.
-//           console.log(error);
-//         });
-//       }
-//     return (
-//         <div>
-//             <form action="" onSubmit={(e) => handleSubmit(e)}>
-//                 <h4> {newUser ? 'create an account' : 'log in'} </h4>
-//                 {newUser && <div>
-//                     <label htmlFor="name">Name </label>
-//                     <input type="text" name="name" onBlur={handleChange} required/>
-//                 </div>
-//                 }
-//                 <div>
-//                     <label htmlFor="name">Username or Email  </label>
-//                     <input type="email" name="email" onBlur={handleChange} required/>
-//                 </div>
-//                 <div>
-//                     <label htmlFor="password">Password  </label>
-//                     <input type="password" name="password" onBlur={handleChange} required/>
-
-//                 </div>
-//                 {newUser && <div>
-//                     <label htmlFor="confirmPassword">confirm Password </label>
-//                     <input type="password" name="confirmPassword" onBlur={handleChange} />
-//                 </div>
-//                 }
-//                 {
-//                     !newUser && <div >
-//                         <input type="checkbox" name="remember" />
-//                         <label htmlFor="remember" className='d-inline'> remember me </label>
-//                         <span>Forgot Password ? </span>
-//                     </div>
-//                 }
-
-
-//                 <button type="submit" className='btn sign-in mt-3'> {newUser ? 'Create an account ' : 'Log in'} </button>
-//                 <p>
-//                     {
-//                         newUser ? ' already have an account?' : 'Dont have an account? '
-//                     }
-
-//                     <span onClick={() => setNewUser(!newUser)}>
-//                         {
-//                             newUser ? ' log in' : 'sign up'
-//                         }
-//                     </span>
-//                 </p>
-//             </form>
-//                         <FbGoogleSignUp />
-//         </div>
-//     );
-// };
-
-// export default LogInSignUp;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import firebase from "firebase/app";
 import "firebase/auth";
 import { useContext, useRef, useState } from 'react';
@@ -299,10 +44,11 @@ const LogInSignUp = () => {
       firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
         .then((userCredential) => {
           // Signed in 
-          var user = userCredential.user;
-          // updateUserName(user.name)
-          const { displayName, email } = user
-          const signedInUser = { name: displayName, email }
+          const userInfo = userCredential.user;
+          updateUserName(user.name)
+          const { email } = userInfo
+          console.log(user.name);
+          const signedInUser = { name: user.name, email }
           setLoggedInUser(signedInUser);
           history.replace(from)
           console.log(signedInUser, user)
@@ -337,7 +83,20 @@ const LogInSignUp = () => {
     }
   }
 
+  const updateUserName = name => {
+    const user = firebase.auth().currentUser;
 
+    user.updateProfile({
+      displayName:name 
+      // photoURL: "https://example.com/jane-q-user/profile.jpg"
+    }).then(function () {
+      // Update successful.
+      console.log('user name updated successfully');
+    }).catch(function (error) {
+      // An error happened.
+      console.log(error);
+    });
+  }
   return (
     <div className='center_item'>
       <div>
