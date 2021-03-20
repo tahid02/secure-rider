@@ -1,0 +1,30 @@
+.bg{
+    background-color: lightgray;
+    /* height: auto; */
+    /* height: 35vh; */
+    /* padding-top: 2vh; */
+}
+
+.button{
+    background-color: orange;
+    padding: 2px 20px;
+}
+.bg form input{
+    width: 100%;
+}
+
+
+.bg_result{
+    background-color: lightgray;
+    height: auto;
+    border-radius: 10px;
+    
+}
+
+.span{
+    border-radius: 10px;
+}
+.span span{
+    color: black;
+    text-decoration: none;
+}

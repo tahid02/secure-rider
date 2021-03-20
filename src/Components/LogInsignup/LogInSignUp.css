@@ -1,0 +1,32 @@
+
+
+label{
+    display: block;
+    font-size: .8rem;
+}
+
+span{
+    color: orange;
+    text-decoration: underline;
+    
+}
+.sign-in{
+    background-color: orange;
+}
+.errorMsg{
+    color: red;
+}
+input{
+    outline: 0;
+    border-width: 0 0 2px;
+    border-color: gray;
+}
+input:focus {
+    border-color: green;
+    
+}
+.center_item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
