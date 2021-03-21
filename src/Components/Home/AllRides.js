@@ -3,17 +3,15 @@ import './home.css'
 
 
 
-// const ={   
-//     color:'black',
-    
-// }
+
 
 const AllRides = ({ name, image }) => {
     return (
-        <div className="col col-md-3 col-sm-6 col-12 ">
+        <div className="col col-md-3 col-sm-6 col-12 mt-5">
             <Link to={`/ride/${name}`}>
             
             <div className="card h-100 p-2 bgSingle">
+                {/* ride image in card */}
                 <div >
                     <img src={image} className="card-img-top" alt="..." />
                 </div>
@@ -21,7 +19,8 @@ const AllRides = ({ name, image }) => {
 
                 </div>
                 <div className="card-footer">
-                    <h5 className='name'>{name} </h5>
+                    {/* ride name in card */}
+                    <h5 className='name text-center'>{name} </h5>
                 </div>
             </div>
             </Link>

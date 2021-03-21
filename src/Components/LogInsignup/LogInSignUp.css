@@ -5,10 +5,10 @@ label{
     font-size: .8rem;
 }
 
-span{
+.center_item span{
     color: orange;
     text-decoration: underline;
-    
+    cursor: pointer;
 }
 .sign-in{
     background-color: orange;

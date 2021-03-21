@@ -35,11 +35,9 @@ const LogInSignUp = () => {
 
 
   const onSubmit = (user) => {
-    // e.preventDefault();
+ 
 
-    console.log(user)
-    console.log(user.email, user.password, user.name);
-    console.log(watch('example'))
+    // sign up if user is new user
     if (newUser) {
       firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
         .then((userCredential) => {
@@ -62,7 +60,7 @@ const LogInSignUp = () => {
 
 
 
-
+    // sign in if user is not new user
     if (!newUser) {
 
       firebase.auth().signInWithEmailAndPassword(user.email, user.password)
@@ -83,20 +81,23 @@ const LogInSignUp = () => {
     }
   }
 
+
+  // update user information after sign up
   const updateUserName = name => {
     const user = firebase.auth().currentUser;
 
     user.updateProfile({
       displayName:name 
-      // photoURL: "https://example.com/jane-q-user/profile.jpg"
     }).then(function () {
-      // Update successful.
       console.log('user name updated successfully');
     }).catch(function (error) {
-      // An error happened.
       console.log(error);
     });
   }
+
+
+
+
   return (
     <div className='center_item'>
       <div>
@@ -106,6 +107,7 @@ const LogInSignUp = () => {
 
           <h4> {newUser ? 'create an account' : 'log in'} </h4>
 
+          {/* input name field */}
           <div className='mt-4'>
             {
               newUser && <div>
@@ -117,6 +119,9 @@ const LogInSignUp = () => {
           </div>
 
 
+
+           
+            {/* input user email field */}
           <div className='mt-4'>
             <label htmlFor="name">Username or Email  </label>
 
@@ -137,7 +142,7 @@ const LogInSignUp = () => {
 
 
 
-
+              {/* input user password field */}
           <div className='mt-4'>
             <label htmlFor="password">Password  </label>
 
@@ -159,14 +164,7 @@ const LogInSignUp = () => {
 
 
 
-          {/* <div>
-          {
-            newUser && <div>
-              <label htmlFor="confirmPassword">confirm Password </label>
-              <input type="password" name="confirmPassword" />
-            </div>
-          }
-        </div> */}
+              {/* user password confirmation field */}
           <div className='mt-4'>
             {
               newUser && <div>
@@ -188,7 +186,7 @@ const LogInSignUp = () => {
 
 
 
-
+            {/* forgot password and remember me part for log in */}
           <div className='mt-4'>
             {
               !newUser && <div >
@@ -211,6 +209,7 @@ const LogInSignUp = () => {
 
             {newUser ? ' already have an account?' : 'Dont have an account? '}
 
+            {/* log in or sign up button */}
             <span onClick={() => setNewUser(!newUser)}>
               {
                 newUser ? ' log in' : 'sign up'
@@ -222,7 +221,8 @@ const LogInSignUp = () => {
 
 
         </form>
-
+              <div className='text-center'>or</div>
+              {/* google and facebook sign up button */}
         <FbGoogleSignUp />
 
       </div>
