@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { UserContext } from "../../../App";
 import { useHistory, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFacebook, faGoogle } from "@fortawesome/free-brands-svg-icons";
+import { faGithub, faGoogle } from "@fortawesome/free-brands-svg-icons";
 
 const styling ={
     backgroundColor:'lightGray',
@@ -20,7 +20,7 @@ const FbGoogleSignUp = () => {
     const { from } = location.state || { from: { pathname: "/" } };
 
     const googleProvider = new firebase.auth.GoogleAuthProvider();
-    const fbProvider = new firebase.auth.FacebookAuthProvider();
+    const gitProvider = new firebase.auth.GithubAuthProvider();
 
 
     const handleSignUp = (provider) => {
@@ -56,8 +56,8 @@ const FbGoogleSignUp = () => {
     }
     return (
         <div>
-            <div onClick={() => handleSignUp(fbProvider)} className='px-3' style={styling} >
-            <FontAwesomeIcon icon={faFacebook} /> continue with facebook  
+            <div onClick={() => handleSignUp(gitProvider)} className='px-3' style={styling} >
+            <FontAwesomeIcon icon={faGithub} /> continue with github
                 </div>
             <br />
             <div onClick={() => handleSignUp(googleProvider)} className='px-3' style={styling} >
